@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="main-container">
+        <!-- Sidebar with title and chat history -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Chat BOT</h1>
+                <button id="toggle-mode" class="toggle-mode">🌙</button>
+            </div>
+
+            <!-- Chat history list on left -->
+            <ul id="chat-list" class="chat-list"></ul>
+
+            <div class="sidebar-footer">
+                <button id="new-chat-btn">New Chat</button>
+                <button id="delete-chat-btn">Delete Chat</button>
+            </div>
+        </aside>
+
+        <!-- Chat Section -->
+        <section class="chat-section">
+            <div id="chat-history" class="chat-history"></div>
+
+            <!-- Chat Form with file, camera, scan options -->
+            <form id="chat-form" autocomplete="off">
+                <input type="text" id="user-input" placeholder="Send a message..." required autofocus />
+
+                <div class="input-options">
+                    <label for="file-upload" class="icon-button" title="Upload file">📎</label>
+                    <input type="file" id="file-upload" style="display: none;" accept=".jpg,.jpeg,.png,.pdf,.docx,.txt" />
+
+                    <label for="camera-upload" class="icon-button" title="Take photo">📷</label>
+                    <input type="file" id="camera-upload" style="display: none;" accept="image/*" capture="environment" />
+
+                    <button type="button" id="scan-btn" class="icon-button" title="Scan">🔍</button>
+                </div>
+
+                <button type="submit" title="Send">
+                    <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M22 2L11 13"></path>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                    </svg>
+                </button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Sound -->
+    <audio id="replySound" src="{{ url_for('static', filename='ping.mp3') }}"></audio>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
